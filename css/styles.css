@@ -298,6 +298,18 @@ html:not(.js) .menu-toggle { display: none; }
 .eod-gallery-item a:hover img { transform: scale(1.035); }
 .eod-gallery-item figcaption { display: flex; gap: 13px; align-items: baseline; background: var(--paper); min-height: 65px; padding: 13px; color: var(--ink); font-size: 11px; line-height: 1.5; }
 .eod-gallery-item figcaption span { flex-shrink: 0; color: var(--accent); font: 9px var(--mono); }
+.titan-story { border-bottom: 1px solid var(--line); }
+.titan-story-intro { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 44px; margin-bottom: 45px; }
+.titan-story-intro p { color: #4f574d; font-size: 15px; line-height: 1.9; }
+.titan-challenge-list { border-top: 1px solid var(--line); }
+.titan-challenge-list article { display: grid; grid-template-columns: minmax(150px,.37fr) 1fr; gap: 35px; padding: 29px 0; border-bottom: 1px solid var(--line); }
+.titan-challenge-index { color: var(--accent); font: 10px var(--mono); letter-spacing: .04em; padding-top: 9px; }
+.titan-challenge-list h3 { font-size: clamp(23px,2.5vw,32px); letter-spacing: -.04em; margin-bottom: 15px; }
+.titan-challenge-list p { font-size: 13px; line-height: 1.8; color: #4f574d; }
+.titan-challenge-list p + p { margin-top: 9px; }
+.titan-challenge-list strong { display: inline-block; min-width: 145px; color: var(--ink); font: 10px var(--mono); text-transform: uppercase; letter-spacing: .03em; }
+.titan-outcome { display: grid; grid-template-columns: minmax(150px,.37fr) 1fr; gap: 35px; margin-top: 30px; border-left: 2px solid var(--accent); background: #eaece3; padding: 26px; }
+.titan-outcome p { font-size: 14px; line-height: 1.8; }
 .titan-lead { max-width: 810px; font-size: 17px; line-height: 1.8; color: #4f574d; }
 .titan-variants { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 36px; }
 .titan-variants > div { border: 1px solid var(--line); padding: 28px; background: #eaece3; }
@@ -432,6 +444,9 @@ html:not(.js) .menu-toggle { display: none; }
   .eod-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .eod-gallery-item img { height: 205px; }
   .titan-variants,.titan-scope { grid-template-columns: 1fr; }
+  .titan-story-intro { grid-template-columns: 1fr; gap: 14px; }
+  .titan-challenge-list article,.titan-outcome { grid-template-columns: 1fr; gap: 12px; }
+  .titan-challenge-index { padding-top: 0; }
   .titan-scope { gap: 22px; }
   .titan-spec-grid { grid-template-columns: 1fr; }
   .titan-photos .eod-gallery-item:first-child img { height: 300px; }
