@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Automated Guided Vehicle (AGV) — Sheikh Al Arefin Ankon</title>
+    <title>Man-Portable EOD ROV — Sheikh Al Arefin Ankon</title>
     <meta name="description"
-        content="Detailed case study of a differential-drive AGV chassis rated for 100 kg payload — FEA structural integrity, load distribution analysis, and SLAM-based navigation integration." />
+        content="Detailed case study of a man-portable Explosive Ordnance Disposal ROV featuring a custom globoidal worm gearbox and carbon fiber composite frame, designed and fabricated in-house." />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,12 +51,13 @@
                     Engineer</span>
             </a>
 
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+            <div class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium">
                 <a href="../index.html#services" class="nav-link">Services</a>
-                <a href="../projects.html" class="nav-link active">Projects</a>
-                <a href="../about.html" class="nav-link">About</a>
+                <a href="../index.html#projects" class="nav-link active">Projects</a>
+                <a href="../index.html#about" class="nav-link">About</a>
+                <a href="../index.html#achievements" class="nav-link">Achievements</a>
                 <a href="../index.html#contact" class="nav-link">Contact</a>
-                <a href="../resume.pdf" target="_blank" class="btn-resume">
+                <a href="../resume.pdf" target="_blank" rel="noopener" class="btn-resume">
                     Resume
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
                         stroke-linecap="round" stroke-linejoin="round">
@@ -65,7 +66,8 @@
                 </a>
             </div>
 
-            <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false">
+            <button id="menu-btn" class="md:hidden p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false"
+                aria-controls="mobile-menu">
                 <svg id="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                     stroke-width="2" stroke-linecap="round">
                     <path d="M4 7h16M4 12h16M4 17h16" />
@@ -80,10 +82,12 @@
         <div id="mobile-menu" class="md:hidden hidden border-t border-line bg-white">
             <div class="px-6 py-4 flex flex-col gap-1 text-sm font-medium">
                 <a href="../index.html#services" class="mobile-link py-2.5">Services</a>
-                <a href="../projects.html" class="mobile-link py-2.5">Projects</a>
-                <a href="../about.html" class="mobile-link py-2.5">About</a>
+                <a href="../index.html#projects" class="mobile-link py-2.5">Projects</a>
+                <a href="../index.html#about" class="mobile-link py-2.5">About</a>
+                <a href="../index.html#achievements" class="mobile-link py-2.5">Achievements</a>
                 <a href="../index.html#contact" class="mobile-link py-2.5">Contact</a>
-                <a href="../resume.pdf" target="_blank" class="btn-resume justify-center mt-2 mb-1">Resume</a>
+                <a href="../resume.pdf" target="_blank" rel="noopener"
+                    class="btn-resume justify-center mt-2 mb-1">Resume</a>
             </div>
         </div>
     </header>
@@ -91,29 +95,29 @@
     <!-- ================= PAGE HERO ================= -->
     <section class="page-hero">
         <div class="relative max-w-shell mx-auto px-6">
-            <a href="../projects.html" class="breadcrumb reveal">
+            <a href="../index.html#projects" class="breadcrumb reveal">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <path d="M19 12H5m0 0l6-6m-6 6l6 6" />
                 </svg>
                 All Projects
             </a>
-            <p class="reveal text-xs uppercase tracking-[0.3em] text-steel font-semibold mt-6 mb-3">Industrial
-                Automation</p>
+            <p class="reveal text-xs uppercase tracking-[0.3em] text-steel font-semibold mt-6 mb-3">Robotics · Drive
+                Systems</p>
             <h1 class="reveal text-4xl sm:text-5xl font-extrabold tracking-tight" style="transition-delay:.08s">
-                Automated Guided Vehicle</h1>
+                Man-Portable EOD ROV</h1>
             <p class="reveal mt-5 text-slate2 max-w-2xl leading-relaxed" style="transition-delay:.16s">
-                Differential-drive AGV chassis rated for 100&nbsp;kg payload — validated through
-                FEA structural analysis and engineered for SLAM-based autonomous navigation.
+                A field-deployable Explosive Ordnance Disposal robot built for rugged operation —
+                every mechanical component engineered and fabricated in-house.
             </p>
         </div>
     </section>
 
     <!-- ================= HERO IMAGE ================= -->
     <section class="max-w-shell mx-auto px-6 -mt-2 mb-16">
-        <div class="reveal project-hero-media"
-            style="background-image:url('https://placehold.co/1200x675/eef1f4/8a95a3?text=AGV+Chassis+—+Full+Assembly');">
-            <span class="project-num">02</span>
+        <div class="reveal project-hero-media" role="img" aria-label="Man-portable EOD ROV full assembly"
+            style="background-image:url('../images/EOD%20ROV.png');">
+            <span class="project-num">01</span>
         </div>
     </section>
 
@@ -123,53 +127,54 @@
             <div class="lg:col-span-3">
                 <p class="reveal text-xs uppercase tracking-[0.3em] text-steel font-semibold mb-3">Overview</p>
                 <h2 class="reveal text-3xl font-bold tracking-tight mb-6" style="transition-delay:.06s">
-                    Heavy-duty autonomy, from the ground up
+                    From concept to deployed prototype
                 </h2>
                 <div class="reveal space-y-4 text-slate2 leading-relaxed" style="transition-delay:.12s">
                     <p>
-                        As Mechanical Lead, I was responsible for the complete structural design of a
-                        differential-drive Automated Guided Vehicle rated for a 100&nbsp;kg payload. The
-                        platform was designed for autonomous material handling in dynamic industrial
-                        environments — warehouses, factory floors, and distribution centers.
+                        This man-portable Explosive Ordnance Disposal robot was designed for compact,
+                        field-deployable bomb disposal operations. I engineered and manufactured every
+                        mechanical component in-house — from the structural carbon fiber composite frame
+                        to the custom drive system — pioneering fabrication techniques that had never been
+                        done locally in Bangladesh.
                     </p>
                     <p>
-                        I executed comprehensive <strong class="text-ink font-semibold">ANSYS FEA structural integrity
-                            studies</strong> to validate the chassis under worst-case dynamic loading scenarios,
-                        including payload shifts, sudden stops, and ramp traversal. Material selection and
-                        load distribution were iteratively optimized to balance structural performance
-                        against weight and cost constraints.
+                        The centerpiece of the drive system is a custom <strong class="text-ink font-semibold">globoidal
+                            worm gearbox</strong> — designed for
+                        high-torque, compact, backlash-resistant power transmission under shock and sustained loads.
+                        Off-the-shelf gearboxes couldn't fit the form factor or survive the operational demands, so I
+                        designed one from scratch, optimizing tooth geometry for load capacity and wear resistance.
                     </p>
                     <p>
-                        Sensor mounting geometry and chassis layout were purpose-engineered around SLAM-based
-                        autonomous navigation requirements — protecting LiDAR, camera, and ultrasonic
-                        instrumentation while maintaining clear line-of-sight coverage and keeping the
-                        center of gravity low for stable high-speed operation.
+                        The structural frame uses carbon fiber composite construction, fabricated using wet layup and
+                        vacuum bagging processes I established in-house. This approach delivered the strength-to-weight
+                        ratio needed for a man-portable platform while maintaining impact resistance under field
+                        conditions.
                     </p>
                 </div>
                 <div class="reveal flex flex-wrap gap-2 mt-6" style="transition-delay:.18s">
-                    <span class="tag">ANSYS FEA</span><span class="tag">Load Analysis</span>
-                    <span class="tag">Differential Drive</span><span class="tag">SLAM Integration</span>
-                    <span class="tag">Material Selection</span><span class="tag">SolidWorks</span>
+                    <span class="tag">SolidWorks</span><span class="tag">Globoidal Worm Gear</span>
+                    <span class="tag">Carbon Fiber Fabrication</span><span class="tag">DFM</span>
+                    <span class="tag">Vacuum Bagging</span><span class="tag">In-House Manufacturing</span>
                 </div>
             </div>
 
             <!-- Key specs sidebar -->
             <div class="lg:col-span-2 space-y-4">
                 <div class="reveal spec-card">
-                    <p class="spec-value">100 kg</p>
-                    <p class="spec-label">Payload Capacity</p>
+                    <p class="spec-value">In-House</p>
+                    <p class="spec-label">Fabrication</p>
                 </div>
                 <div class="reveal spec-card" style="transition-delay:.06s">
-                    <p class="spec-value">Diff-Drive</p>
-                    <p class="spec-label">Drive Configuration</p>
+                    <p class="spec-value">Deployed</p>
+                    <p class="spec-label">Prototype Stage</p>
                 </div>
                 <div class="reveal spec-card" style="transition-delay:.12s">
                     <p class="spec-value">Mech Lead</p>
                     <p class="spec-label">Role</p>
                 </div>
                 <div class="reveal spec-card" style="transition-delay:.18s">
-                    <p class="spec-value">Prototype</p>
-                    <p class="spec-label">Stage</p>
+                    <p class="spec-value">CF + Alloy</p>
+                    <p class="spec-label">Materials</p>
                 </div>
             </div>
         </div>
@@ -188,15 +193,16 @@
                     <div class="icon-box">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 20h18M4 20V9l4 3V9l4 3V6l4 4V5l4 4v11" />
-                            <path d="M7 16.5h.01M11 16.5h.01M15 16.5h.01" stroke-width="2.4" />
+                            <circle cx="12" cy="12" r="3.2" />
+                            <path
+                                d="M12 2v3.5M12 18.5V22M2 12h3.5M18.5 12H22M5 5l2.4 2.4M16.6 16.6L19 19M19 5l-2.4 2.4M7.4 16.6L5 19" />
                         </svg>
                     </div>
-                    <h3>FEA Structural Validation</h3>
+                    <h3>Globoidal Worm Gearbox</h3>
                     <p>
-                        ANSYS static and modal analysis validated the chassis under 100&nbsp;kg payload
-                        with dynamic loading factors — mapping stress concentrations, deflection, and
-                        natural frequencies to prevent resonance-induced failures.
+                        Custom-designed high-torque globoidal worm gear system — optimized tooth
+                        geometry for maximum load capacity in a compact envelope, with near-zero
+                        backlash for precise manipulation tasks.
                     </p>
                 </div>
 
@@ -204,16 +210,15 @@
                     <div class="icon-box">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="3.2" />
-                            <path
-                                d="M12 2v3.5M12 18.5V22M2 12h3.5M18.5 12H22M5 5l2.4 2.4M16.6 16.6L19 19M19 5l-2.4 2.4M7.4 16.6L5 19" />
+                            <path d="M12 2l8 4.5v11L12 22l-8-4.5v-11L12 2z" />
+                            <path d="M12 22V11M4 6.5l8 4.5 8-4.5" opacity="0.55" />
                         </svg>
                     </div>
-                    <h3>Sensor Layout Engineering</h3>
+                    <h3>Carbon Fiber Composite Frame</h3>
                     <p>
-                        Chassis geometry was designed around SLAM navigation requirements — LiDAR
-                        mounting positions, camera FOV clearance, and ultrasonic sensor placement
-                        were all parametrically optimized for 360° coverage.
+                        Established Bangladesh's first in-house carbon fiber fabrication workflow —
+                        wet layup and vacuum bagging for structural components, achieving the
+                        strength-to-weight ratio needed for man-portable deployment.
                     </p>
                 </div>
 
@@ -221,15 +226,15 @@
                     <div class="icon-box">
                         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" />
-                            <path d="M12 22V12M3 7l9 5 9-5" />
+                            <path d="M3 20h18M4 20V9l4 3V9l4 3V6l4 4V5l4 4v11" />
+                            <path d="M7 16.5h.01M11 16.5h.01M15 16.5h.01" stroke-width="2.4" />
                         </svg>
                     </div>
-                    <h3>Load Distribution Optimization</h3>
+                    <h3>Design for Manufacturability</h3>
                     <p>
-                        Material selection and cross-section geometry were iteratively optimized
-                        to distribute 100&nbsp;kg payloads evenly across the drive wheels, maintaining
-                        traction and stability during acceleration and cornering.
+                        Every part was designed with local manufacturing constraints in mind — CNC
+                        machined metal components and composite layups were all validated for
+                        in-house production before finalizing the design.
                     </p>
                 </div>
             </div>
@@ -240,15 +245,18 @@
     <section class="max-w-shell mx-auto px-6 py-20">
         <div class="reveal mb-12">
             <p class="text-xs uppercase tracking-[0.3em] text-steel font-semibold mb-3">Gallery</p>
-            <h2 class="text-3xl font-bold tracking-tight">Design &amp; Analysis</h2>
+            <h2 class="text-3xl font-bold tracking-tight">Build Process</h2>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="reveal project-hero-media !aspect-[4/3]"
-                style="background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Chassis+FEA+Results');"></div>
-            <div class="reveal project-hero-media !aspect-[4/3]" style="transition-delay:.08s;background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Drive+System+Layout');">
+                style="background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Gearbox+CAD+Model');">
             </div>
-            <div class="reveal project-hero-media !aspect-[4/3]" style="transition-delay:.16s;background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Sensor+Mounting+Detail');">
+            <div class="reveal project-hero-media !aspect-[4/3]"
+                style="transition-delay:.08s;background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Carbon+Fiber+Layup');">
+            </div>
+            <div class="reveal project-hero-media !aspect-[4/3]"
+                style="transition-delay:.16s;background-image:url('https://placehold.co/600x450/eef1f4/8a95a3?text=Assembled+ROV');">
             </div>
         </div>
     </section>
@@ -256,13 +264,10 @@
     <!-- ================= PROJECT NAV ================= -->
     <section class="max-w-shell mx-auto px-6 pb-20">
         <div class="project-nav">
-            <a href="eod-rov.html">
-                <span class="nav-dir">← Previous Project</span>
-                <span class="nav-title">Man-Portable EOD ROV</span>
-            </a>
-            <a href="mars-rover.html">
+            <div></div>
+            <a href="agv.html">
                 <span class="nav-dir">Next Project →</span>
-                <span class="nav-title">Mars Rover Chassis — ARC '23</span>
+                <span class="nav-title">Automated Guided Vehicle</span>
             </a>
         </div>
     </section>
@@ -270,13 +275,13 @@
     <!-- ================= CTA ================= -->
     <section class="bg-mist border-y border-line">
         <div class="max-w-shell mx-auto px-6 py-20 text-center">
-            <h2 class="reveal text-3xl font-bold tracking-tight mb-3">Need a heavy-duty platform designed?</h2>
+            <h2 class="reveal text-3xl font-bold tracking-tight mb-3">Have a similar project?</h2>
             <p class="reveal text-slate2 mb-7 max-w-md mx-auto" style="transition-delay:.08s">
-                From FEA validation to full chassis architecture — let's discuss your requirements.
+                From gearbox design to full robotic platforms — let's talk through your requirements.
             </p>
             <div class="reveal flex flex-wrap justify-center gap-4" style="transition-delay:.16s">
                 <a href="../index.html#contact" class="btn-primary">Get in Touch</a>
-                <a href="../resume.pdf" target="_blank" class="btn-secondary">View Resume</a>
+                <a href="../resume.pdf" target="_blank" rel="noopener" class="btn-secondary">View Resume</a>
             </div>
         </div>
     </section>
@@ -286,8 +291,8 @@
         <div class="max-w-shell mx-auto px-6 py-10 flex flex-col sm:flex-row items-center justify-between gap-6">
             <p class="text-sm text-slate2">© <span id="year"></span> Sheikh Al Arefin Ankon. All rights reserved.</p>
             <div class="flex items-center gap-5">
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="footer-link"
-                    aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/in/sheikh-al-arefin-ankon-43807a39b?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android"
+                    target="_blank" rel="noopener" class="footer-link" aria-label="LinkedIn">
                     <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.56V9h3.56v11.45z" />
