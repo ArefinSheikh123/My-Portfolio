@@ -328,6 +328,35 @@ html:not(.js) .menu-toggle { display: none; }
 .titan-spec-grid dd { text-align: right; font-weight: 600; }
 .titan-photos .eod-gallery-item:first-child { grid-column: span 2; }
 .titan-photos .eod-gallery-item:first-child img { height: 390px; }
+.gearbox-load-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; margin-bottom: 18px; }
+.gearbox-load-grid > div { border-top: 2px solid var(--accent); background: var(--paper); padding: 24px; }
+.gearbox-load-grid span { font: 600 clamp(26px,3vw,39px) var(--display); letter-spacing: -.05em; }
+.gearbox-load-grid p { color: var(--muted); font-size: 12px; line-height: 1.75; margin-top: 12px; }
+.gearbox-note { color: var(--muted); font-size: 11px; line-height: 1.7; margin: 0 0 36px; }
+.gearbox-text-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 45px; margin-bottom: 38px; }
+.gearbox-text-grid p,.gearbox-build-lead { max-width: 900px; color: #4f574d; font-size: 15px; line-height: 1.9; }
+.gearbox-media-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.gearbox-media-pair figure,.gearbox-photo-grid figure { border: 1px solid var(--line); background: #eaece3; }
+.gearbox-media-pair img { width: 100%; height: 350px; object-fit: contain; }
+.gearbox-media-pair figcaption,.gearbox-photo-grid figcaption { padding: 15px; background: var(--paper); font-size: 11px; line-height: 1.6; }
+.gearbox-media-pair figcaption span { color: var(--accent); font: 10px var(--mono); margin-right: 12px; }
+.gearbox-stage-list { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 25px; margin-top: 40px; }
+.gearbox-stage-list > div { border-top: 1px solid var(--line); padding-top: 17px; }
+.gearbox-stage-list strong { color: var(--accent); font: 10px var(--mono); }
+.gearbox-stage-list p { font-size: 12px; line-height: 1.75; margin-top: 13px; }
+.gearbox-evidence { background: #eaece3; border-block: 1px solid var(--line); }
+.gearbox-chart-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 20px; }
+.gearbox-chart-grid figure { min-width: 0; background: var(--paper); border: 1px solid var(--line); }
+.gearbox-chart-grid a { display: block; background: white; }
+.gearbox-chart-grid img { width: 100%; height: 320px; object-fit: contain; }
+.gearbox-chart-grid figcaption { padding: 22px; }
+.gearbox-chart-grid figcaption strong { font: 600 21px var(--display); }
+.gearbox-chart-grid figcaption p { color: var(--muted); font-size: 12px; line-height: 1.8; margin-top: 10px; }
+.gearbox-build-lead { margin-bottom: 35px; }
+.gearbox-photo-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.gearbox-photo-grid img { width: 100%; height: 290px; object-fit: contain; }
+.gearbox-outcome { border-left: 2px solid var(--accent); background: #eaece3; padding: 25px; margin-top: 38px; }
+.gearbox-outcome p { max-width: 850px; font-size: 14px; line-height: 1.8; margin-top: 12px; }
 .next-project { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
 .next-project h2 { font-size: clamp(30px,4vw,50px); letter-spacing: -.05em; margin-top: 15px; }
 .next-project > a { width: 68px; height: 68px; flex-shrink: 0; border: 1px solid var(--line); display: grid; place-items: center; }
@@ -449,6 +478,10 @@ html:not(.js) .menu-toggle { display: none; }
   .titan-challenge-index { padding-top: 0; }
   .titan-scope { gap: 22px; }
   .titan-spec-grid { grid-template-columns: 1fr; }
+  .gearbox-load-grid,.gearbox-photo-grid { grid-template-columns: 1fr; }
+  .gearbox-text-grid,.gearbox-chart-grid { grid-template-columns: 1fr; gap: 18px; }
+  .gearbox-stage-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .gearbox-photo-grid img { height: 320px; }
   .titan-photos .eod-gallery-item:first-child img { height: 300px; }
   .eod-spec-details summary { font-size: 17px; padding-block: 21px; }
   .eod-spec-index { margin-right: 8px; }
@@ -474,6 +507,9 @@ html:not(.js) .menu-toggle { display: none; }
   .titan-variants > div,.titan-spec-grid article { padding: 21px; }
   .titan-spec-grid dl > div { flex-direction: column; gap: 2px; }
   .titan-spec-grid dd { text-align: left; }
+  .gearbox-media-pair,.gearbox-stage-list { grid-template-columns: 1fr; }
+  .gearbox-media-pair img,.gearbox-chart-grid img { height: 250px; }
+  .gearbox-photo-grid img { height: 275px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

@@ -9,12 +9,13 @@ Run `python -m http.server 4173 --bind 127.0.0.1` in the repository, then open
 ## Site structure
 
 - `index.html`: introduction, filterable projects, expertise, applied research, biography, credentials, and contact.
-- `projects/`: four standalone engineering case studies.
+- `projects/`: five standalone engineering case studies.
 - `css/styles.css`: shared responsive design system.
 - `js/script.js`: navigation, filtering, and optional scroll animation.
 - `images/`: existing project photographs, portrait, and SVG favicon.
 - `images/eod-rov/`: project photos and CAD views for the Man-Portable EOD ROV case study.
 - `images/titan/`: project photos and CAD views for the Titan printer case study.
+- `images/gearbox/`: photographs, CAD views, and simulation graphs from the ROV worm-gear project presentation.
 - Legacy about, projects, and skills URLs redirect to their corresponding homepage sections.
 
 ## Publishing
