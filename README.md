@@ -13,6 +13,9 @@ Run `python -m http.server 4173 --bind 127.0.0.1` in the repository, then open
 - `css/styles.css`: shared responsive design system.
 - `js/script.js`: navigation, filtering, and optional scroll animation.
 - `images/`: existing project photographs, portrait, and SVG favicon.
+- `images/eod-rov/`: project photos and CAD views reproduced from Emon Roy Bappy’s
+  [Man-Transportable ROV case study](https://emon4058.github.io/portfolio_erb4058/assets/projects/project.html?i=0).
+  The source and contributor are credited on the EOD ROV page.
 - Legacy about, projects, and skills URLs redirect to their corresponding homepage sections.
 
 ## Publishing
