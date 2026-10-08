@@ -14,6 +14,7 @@ Run `python -m http.server 4173 --bind 127.0.0.1` in the repository, then open
 - `js/script.js`: navigation, filtering, and optional scroll animation.
 - `images/`: existing project photographs, portrait, and SVG favicon.
 - `images/eod-rov/`: project photos and CAD views for the Man-Portable EOD ROV case study.
+- `images/titan/`: project photos and CAD views for the Titan printer case study.
 - Legacy about, projects, and skills URLs redirect to their corresponding homepage sections.
 
 ## Publishing

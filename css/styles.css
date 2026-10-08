@@ -298,6 +298,24 @@ html:not(.js) .menu-toggle { display: none; }
 .eod-gallery-item a:hover img { transform: scale(1.035); }
 .eod-gallery-item figcaption { display: flex; gap: 13px; align-items: baseline; background: var(--paper); min-height: 65px; padding: 13px; color: var(--ink); font-size: 11px; line-height: 1.5; }
 .eod-gallery-item figcaption span { flex-shrink: 0; color: var(--accent); font: 9px var(--mono); }
+.titan-lead { max-width: 810px; font-size: 17px; line-height: 1.8; color: #4f574d; }
+.titan-variants { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; margin-top: 36px; }
+.titan-variants > div { border: 1px solid var(--line); padding: 28px; background: #eaece3; }
+.titan-variants span { font: 10px var(--mono); color: var(--accent); letter-spacing: .06em; }
+.titan-variants strong { display: block; font: 600 clamp(26px,3vw,38px) var(--display); letter-spacing: -.045em; margin-top: 16px; }
+.titan-variants p { color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 9px; }
+.titan-scope { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; margin-top: 44px; border-top: 1px solid var(--line); padding-top: 28px; }
+.titan-scope p { margin-top: 12px; font-size: 14px; line-height: 1.8; }
+.titan-technical { background: #eaece3; border-block: 1px solid var(--line); }
+.titan-spec-note { max-width: 750px; color: var(--muted); font-size: 13px; line-height: 1.8; margin-top: -15px; margin-bottom: 31px; }
+.titan-spec-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+.titan-spec-grid article { background: var(--paper); border: 1px solid var(--line); padding: 27px; }
+.titan-spec-grid h3 { font-size: 23px; letter-spacing: -.03em; margin-bottom: 16px; }
+.titan-spec-grid dl > div { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding: 13px 0; font-size: 12px; line-height: 1.6; }
+.titan-spec-grid dt { color: var(--muted); flex: 0 0 39%; }
+.titan-spec-grid dd { text-align: right; font-weight: 600; }
+.titan-photos .eod-gallery-item:first-child { grid-column: span 2; }
+.titan-photos .eod-gallery-item:first-child img { height: 390px; }
 .next-project { display: flex; align-items: center; justify-content: space-between; gap: 35px; }
 .next-project h2 { font-size: clamp(30px,4vw,50px); letter-spacing: -.05em; margin-top: 15px; }
 .next-project > a { width: 68px; height: 68px; flex-shrink: 0; border: 1px solid var(--line); display: grid; place-items: center; }
@@ -413,6 +431,10 @@ html:not(.js) .menu-toggle { display: none; }
   .eod-fact-grid > div:last-child { border-bottom: 0; }
   .eod-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
   .eod-gallery-item img { height: 205px; }
+  .titan-variants,.titan-scope { grid-template-columns: 1fr; }
+  .titan-scope { gap: 22px; }
+  .titan-spec-grid { grid-template-columns: 1fr; }
+  .titan-photos .eod-gallery-item:first-child img { height: 300px; }
   .eod-spec-details summary { font-size: 17px; padding-block: 21px; }
   .eod-spec-index { margin-right: 8px; }
   .eod-spec-count { font-size: 8px; }
@@ -432,6 +454,11 @@ html:not(.js) .menu-toggle { display: none; }
   .research-content h3 { max-width: none; }
   .eod-gallery { grid-template-columns: 1fr; gap: 16px; }
   .eod-gallery-item img { height: 255px; }
+  .titan-photos .eod-gallery-item:first-child { grid-column: auto; }
+  .titan-photos .eod-gallery-item:first-child img { height: 255px; }
+  .titan-variants > div,.titan-spec-grid article { padding: 21px; }
+  .titan-spec-grid dl > div { flex-direction: column; gap: 2px; }
+  .titan-spec-grid dd { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
