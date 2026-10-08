@@ -273,8 +273,7 @@ html:not(.js) .menu-toggle { display: none; }
 .eod-fact-grid > div:not(:first-child) { padding-left: 24px; }
 .eod-fact-grid > div:last-child { border-right: 0; }
 .eod-fact-grid p { font-size: 13px; line-height: 1.8; margin-top: 11px; }
-.eod-source-line,.eod-gallery-credit { font-size: 11px; color: var(--muted); line-height: 1.75; margin-top: 21px; }
-.eod-source-line a,.eod-gallery-credit a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.eod-source-line { font-size: 11px; color: var(--muted); line-height: 1.75; margin-top: 21px; }
 .eod-technical { background: #eaece3; border-block: 1px solid var(--line); }
 .eod-spec-accordions { border-top: 1px solid #bdc5b5; }
 .eod-spec-details { border-bottom: 1px solid #bdc5b5; }
