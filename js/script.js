@@ -1,112 +1,106 @@
-/* ============================================================
-   Portfolio interactions — vanilla JS, no dependencies
-   ============================================================ */
-(function () {
-    "use strict";
+/* Progressive enhancement. All content and links work without JavaScript. */
+(() => {
+  "use strict";
+  document.documentElement.classList.add("js");
+  const menuButton = document.querySelector(".menu-toggle");
+  const navigation = document.getElementById("navigation");
+  const mobile = window.matchMedia("(max-width: 700px)");
+  function closeMenu(returnFocus = false) {
+    if (!menuButton || !navigation) return;
+    navigation.classList.remove("is-open");
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open navigation");
+    if (returnFocus) menuButton.focus();
+  }
+  if (menuButton && navigation) {
+    menuButton.addEventListener("click", () => {
+      const open = menuButton.getAttribute("aria-expanded") !== "true";
+      navigation.classList.toggle("is-open", open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    });
+    navigation.addEventListener("click", (event) => {
+      if (event.target.closest("a")) closeMenu();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") closeMenu(true);
+    });
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".site-header")) closeMenu();
+    });
+    navigation.addEventListener("focusout", () => {
+      requestAnimationFrame(() => {
+        if (!document.activeElement.closest(".site-header")) closeMenu();
+      });
+    });
+    mobile.addEventListener("change", () => closeMenu());
+  }
 
-    /* ---------- 1. Reveal-on-scroll (IntersectionObserver) ---------- */
-    const revealEls = document.querySelectorAll(".reveal");
+  const cards = [...document.querySelectorAll(".work-card")];
+  const filters = [...document.querySelectorAll("[data-filter]")];
+  const count = document.querySelector(".project-count");
+  filters.forEach(button => {
+    button.addEventListener("click", () => {
+      const category = button.dataset.filter;
+      filters.forEach(filter => {
+        const selected = filter === button;
+        filter.classList.toggle("active", selected);
+        filter.setAttribute("aria-pressed", String(selected));
+      });
+      let visible = 0;
+      cards.forEach(card => {
+        const show = category === "all" || card.dataset.category === category;
+        card.hidden = !show;
+        if (show) {
+          visible += 1;
+          card.classList.remove("is-pending");
+        }
+      });
+      if (count) count.textContent = String(visible).padStart(2, "0") + (visible === 1 ? " SELECTED PROJECT" : " SELECTED PROJECTS");
+    });
+  });
 
-    if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-                        revealObserver.unobserve(entry.target); // animate once
-                    }
-                });
-            },
-            { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-        );
-        revealEls.forEach((el) => revealObserver.observe(el));
-    } else {
-        revealEls.forEach((el) => el.classList.add("visible"));
-    }
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if ("IntersectionObserver" in window && !reducedMotion.matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("is-pending");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    document.querySelectorAll(".reveal").forEach(element => {
+      // Keep the initial viewport visible and animate only incoming content.
+      if (element.getBoundingClientRect().top > window.innerHeight) {
+        element.classList.add("is-pending");
+        observer.observe(element);
+      }
+    });
+    reducedMotion.addEventListener("change", () => {
+      if (reducedMotion.matches) {
+        document.querySelectorAll(".is-pending").forEach(element => element.classList.remove("is-pending"));
+        observer.disconnect();
+      }
+    });
+  }
 
-    /* ---------- 2. Navbar: shadow/border on scroll ---------- */
-    const navbar = document.getElementById("navbar");
-    if (navbar) {
-        const onScroll = () => {
-            navbar.classList.toggle("scrolled", window.scrollY > 12);
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-    }
-
-    /* ---------- 3. Scroll-spy: highlight active nav link ---------- */
-    const sections = ["services", "projects", "about", "contact"]
-        .map((id) => document.getElementById(id))
-        .filter(Boolean);
-    const navLinks = document.querySelectorAll(".nav-link");
-
-    if (sections.length > 0 && navLinks.length > 0) {
-        const spyObserver = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach((link) => {
-                            link.classList.toggle(
-                                "active",
-                                link.getAttribute("href") === `#${entry.target.id}`
-                            );
-                        });
-                    }
-                });
-            },
-            { rootMargin: "-45% 0px -50% 0px" }
-        );
-        sections.forEach((sec) => spyObserver.observe(sec));
-    }
-
-    /* ---------- 4. Mobile menu ---------- */
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const iconOpen = document.getElementById("icon-open");
-    const iconClose = document.getElementById("icon-close");
-
-    if (menuBtn && mobileMenu && iconOpen && iconClose) {
-        const closeMenu = () => {
-            mobileMenu.classList.add("hidden");
-            iconOpen.classList.remove("hidden");
-            iconClose.classList.add("hidden");
-            menuBtn.setAttribute("aria-expanded", "false");
-        };
-
-        menuBtn.addEventListener("click", () => {
-            const isOpen = !mobileMenu.classList.contains("hidden");
-            if (isOpen) {
-                closeMenu();
-            } else {
-                mobileMenu.classList.remove("hidden");
-                iconOpen.classList.add("hidden");
-                iconClose.classList.remove("hidden");
-                menuBtn.setAttribute("aria-expanded", "true");
-            }
+  const sectionLinks = [...document.querySelectorAll('.nav-link[href^="#"]')];
+  const observedSections = sectionLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+  if ("IntersectionObserver" in window && observedSections.length) {
+    const spy = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        sectionLinks.forEach(link => {
+          const active = link.getAttribute("href") === "#" + entry.target.id;
+          link.classList.toggle("active", active);
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
         });
-
-        document.querySelectorAll(".mobile-link, #mobile-menu .btn-resume").forEach((el) => {
-            el.addEventListener("click", closeMenu);
-        });
-    }
-
-    /* ---------- 5. Back-to-top button ---------- */
-    const toTopBtn = document.getElementById("to-top");
-    if (toTopBtn) {
-        toTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    }
-
-    /* ---------- 6. Dynamic footer year ---------- */
-    const yearEl = document.getElementById("year");
-    if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
-    }
-
-    /* ---------- 7. Static-site mailto fallback note ----------
-       The contact form uses action="mailto:..." so it works with zero
-       backend on GitHub Pages. To upgrade later, point the form at
-       Formspree: action="https://formspree.io/f/YOUR_FORM_ID"
-       method="POST" — no JS change needed.                         */
+      });
+    }, { rootMargin: "-15% 0px -60% 0px", threshold: 0 });
+    observedSections.forEach(section => spy.observe(section));
+  }
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 })();
